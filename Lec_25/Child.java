@@ -11,4 +11,8 @@ public class Child extends Parent{
 	public void funC() {
 		System.out.println("Child funC");
 	}
+	@Override
+	public String toString() {
+		return "ahuu ahuu ahuu";
+	}
 }

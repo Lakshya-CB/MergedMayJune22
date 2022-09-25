@@ -1,9 +1,19 @@
 package Lec_25;
 
+import java.util.ArrayList;
+
 public class Client_Inhe {
 	public static void main(String[] args) {
 //		case : 1
-		Parent P1 = new Parent();
+		ArrayList<Integer> AL = new ArrayList<>();
+		System.out.println(AL);
+		Parent P1 = new Child();
+		System.out.println(P1);
+//		String s = P1.toString();
+//		System.out.println(s);
+		Object X = new Child();
+//		((Child)X)
+//		System.out.println(P1.);
 //		case : 2
 		Parent P2 = new Child();
 		System.out.println(P2.dataP);

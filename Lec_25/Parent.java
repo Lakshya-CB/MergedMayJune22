@@ -5,8 +5,13 @@ public class Parent {
 	int dataP = 10;
 	public void fun() {
 		System.out.println("Parent fun");
+		
 	}
 	public void funP() {
 		System.out.println("Parent funP");
 	}
+//	@Override
+//	public String tostring() {
+//		return "ahuu ahuu ahuu";
+//	}
 }

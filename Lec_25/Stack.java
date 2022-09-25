@@ -1,13 +1,13 @@
 package Lec_25;
 
 public class Stack {
-	private int[] arr;
-	private int tos;
+	protected int[] arr;
+	protected int tos;
 
-	Stack() {
+	public Stack() {
 		this(5);
 	}
-	Stack(int newCap){
+	public Stack(int newCap){
 		arr = new int[newCap];
 		tos = -1;
 	}
