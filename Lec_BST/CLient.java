@@ -1,4 +1,4 @@
-package Lec_BTrees;
+package Lec_BST;
 
 public class CLient {
 	public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class CLient {
 //		BT.print();
 
 		int[] lvl = { 3, 5, 1, 6, 2, 0, 8, -1, -1, 7, 4 };
-		BTree BT = new BTree(lvl, 0);
+		BST BT = new BST(lvl, 0);
 		BT.Lvloder();
 //		System.out.println(1<=2);
 

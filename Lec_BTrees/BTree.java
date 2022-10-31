@@ -1,11 +1,14 @@
 package Lec_BTrees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BTree {
 //	Must do !! in linked list
 //	Copy random linkedList
 //	Happy number
 //	LinkedList palindrome
-	
+
 	class Node {
 		public Node(int i) {
 			// TODO Auto-generated constructor stub
@@ -141,9 +144,77 @@ public class BTree {
 
 		pair ans = new pair();
 		ans.dia = Math.max(self, Math.max(R.dia, L.dia));
-		ans.Ht = L.Ht + R.Ht + 1;
+		ans.Ht = Math.max(L.Ht, R.Ht) + 1;
 
 		return ans;
 
+	}
+
+	private boolean isBal(Node nn) {
+		if (nn == null) {
+			return true;
+		}
+		boolean left = isBal(nn.left);
+		boolean right = isBal(nn.right);
+		boolean self = Math.abs(Ht(nn.left) - Ht(nn.right)) <= 1;
+
+		return left && right && self;
+	}
+
+	BTree(int[] pre) {
+		pidx = 0;
+		root = createPre(pre);
+	}
+
+	int pidx = 0;
+
+	private Node createPre(int[] pre) {
+		if (pidx >= pre.length || pre[pidx] == -1) {
+			pidx++;
+			return null;
+		}
+		Node nn = new Node(pre[pidx]);
+		pidx++;
+
+		nn.left = createPre(pre);
+		nn.right = createPre(pre);
+		return nn;
+	}
+
+	public void Lvloder() {
+		Queue<Node> Q = new LinkedList<>();
+		Q.add(root);
+		while (!Q.isEmpty()) {
+			Node curr = Q.poll();
+			System.out.println(curr.data);
+			if (curr.left != null) {
+				Q.add(curr.left);
+			}
+			if (curr.right != null) {
+				Q.add(curr.right);
+			}
+		}
+	}
+
+	BTree(int lvl[], int idx) {
+		root = new Node(lvl[idx]);
+		idx++;
+		Queue<Node> Q = new LinkedList<>();
+		Q.add(root);
+		while (!Q.isEmpty()) {
+			Node curr = Q.poll();
+
+			if (idx < lvl.length && lvl[idx] != -1) {
+				curr.left = new Node(lvl[idx]);
+				Q.add(curr.left);
+			}
+			idx++;
+
+			if (idx < lvl.length && lvl[idx] != -1) {
+				curr.right = new Node(lvl[idx]);
+				Q.add(curr.right);
+			}
+			idx++;
+		}
 	}
 }
