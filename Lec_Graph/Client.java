@@ -12,7 +12,9 @@ public class Client {
 		G.addEdge(5,7,6);
 		G.addEdge(6,7,4);
 		System.out.println(G.map);
-		System.out.println(G.hasPath(1, 6));
-		G.Dijkstra(1);
+//		System.out.println(G.hasPath(1, 6));
+		G.Dijkstra(2);
+		System.out.println("=====");
+		G.BellMan(2);
 	}
 }

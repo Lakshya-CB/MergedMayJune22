@@ -166,4 +166,24 @@ public class Graph {
 		}
 
 	}
+	public void BellMan(int src) {
+		for(int dest : map.keySet()) {
+			System.out.println(src+ " => "+ BellMan(src, dest, map.size()-1));
+		}
+	}
+	private int BellMan(int scr, int dest, int cnt) {
+		
+		if(scr == dest) {
+			return 0;
+		}
+		if(cnt==0) {
+			return Integer.MAX_VALUE/2;
+		}
+		int sp = BellMan(scr, dest, cnt-1);
+		for(int nbr : map.get(dest).keySet()) {
+			int path_cost = BellMan(scr, nbr, cnt-1)+getEdge(nbr, dest);
+			sp = Math.min(path_cost, sp);
+		}
+		return sp;
+	}
 }
